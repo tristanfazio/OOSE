@@ -3,9 +3,25 @@ import java.util.*;
 /**
  * Contains all the address book entries.
  * 
- * @author ...
+ * @author Tristan Fazio
  */
 public class AddressBook
 {
-    // Insert your code here.
+    private Map<String,Entry> addressMap;
+
+    public AddressBook()
+    {
+        addressMap = new HashMap<String,Entry>();
+    }
+
+    public Entry findName(String name)
+    {
+        Entry entry = addressMap.get(name);
+        return entry;
+    }
+
+    public void addEntry(Entry entry)
+    {
+        addressMap.put(entry.getName(), entry);
+    }
 }

@@ -45,11 +45,19 @@ public class AddressBookApp
         {
             String[] parts = line.split(":");
             
-            // Insert your code here to add a new address book entry.
-            // Note: 
-            // parts[0] contains the person's name.
-            // parts[1], parts[2], etc. contain the person's email address(es).
-            
+            Entry entry = new Entry();
+            for(int i=0;i<parts.length;i++)
+            {
+                if(i==0)
+                {
+                    entry.setName(parts[i]);
+                }
+                else
+                {
+                    entry.pushAddress(parts[i]);
+                }
+            }
+            addressBook.addEntry(entry);
             line = reader.readLine();
         }
         reader.close();
@@ -78,8 +86,8 @@ public class AddressBookApp
                     case 1:
                         System.out.print("Enter name: ");
                         String name = input.nextLine();
-                        
-                        // Insert your code here to find an entry by name and display it.
+                        Entry entry = addressBook.findName(name);
+                        printEntry(entry);
                         break;
                         
                     case 2:
@@ -99,6 +107,16 @@ public class AddressBookApp
                 // The user entered something non-numerical.
                 System.out.println("Enter a number");
             }
+        }
+    }
+    private static void printEntry(Entry entry)
+    {
+        System.out.println("------------------------------");
+        System.out.println(entry.getName() + ":");
+        Set<String> addresses = entry.getAddresses();
+        for(String s: addresses)
+        {
+            System.out.println(s);
         }
     }
 }
