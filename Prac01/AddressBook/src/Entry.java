@@ -11,7 +11,7 @@ public class Entry
 {
     private String name;
     private Set<String> addresses;
-
+    
     //default constructor
     public Entry()
     {
@@ -39,5 +39,18 @@ public class Entry
     public void pushAddress(String inAddress)
     {
         addresses.add(inAddress);
+    }
+
+    public String toString()
+    {
+        String string = "";
+        string+="------------------------------\n";
+        string+=(name + ":");
+        for(String s: addresses)
+        {
+           string+=("\n\t" + s);
+        }
+        string+=("\n------------------------------");
+        return string;
     }
 }

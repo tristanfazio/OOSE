@@ -73,6 +73,7 @@ public class AddressBookApp
      */
     private static void showMenu(AddressBook addressBook)
     {
+        Entry entry = new Entry();
         boolean done = false;
         while(!done)
         {
@@ -86,20 +87,23 @@ public class AddressBookApp
                     case 1:
                         System.out.print("Enter name: ");
                         String name = input.nextLine();
-                        Entry entry = addressBook.findName(name);
+                        entry = addressBook.findName(name);
                         if(entry!=null)
                         {
-                          printEntry(entry);
+                            System.out.println(entry.toString());
                         }
                         break;
 
                     case 2:
                         System.out.print("Enter email address: ");
                         String email = input.nextLine();
-
-                        // Insert your code here to find an entry by email and display it.
+                        entry = addressBook.findAddress(email);
+                        if(entry!=null)
+                        {
+                            System.out.println(entry.toString());
+                        }
                         break;
-
+                        
                     case 3:
                         done = true;
                         break;
@@ -111,16 +115,5 @@ public class AddressBookApp
                 System.out.println("Enter a number");
             }
         }
-    }
-    private static void printEntry(Entry entry)
-    {
-        System.out.println("------------------------------");
-        System.out.println(entry.getName() + ":");
-        Set<String> addresses = entry.getAddresses();
-        for(String s: addresses)
-        {
-            System.out.println("\t" + s);
-        }
-        System.out.println("------------------------------");
     }
 }
