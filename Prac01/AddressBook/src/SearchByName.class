@@ -1,0 +1,15 @@
+/**
+ * SearchByName
+ * Option class to handle Name searching
+ * Implements Option interface
+ * @author Tristan Fazio
+ */
+
+public class SearchByName Implements Option
+{
+    @override
+    public String doOption()
+    {
+        
+    }
+}

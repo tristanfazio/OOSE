@@ -1,0 +1,15 @@
+/**
+ * SearchByEmail
+ * Option class to handle email searching
+ * Implements Option interface
+ * @author Tristan Fazio
+ */
+
+ public class SearchByEmail Implements Option
+ {
+     @override
+     public String doOption()
+     {
+         
+     }
+ }
