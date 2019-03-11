@@ -3,12 +3,14 @@ import java.util.*;
 
 /**
  * A simple address book application.
- * @author Dave and ...
+ * @author Dave and Tristan Fazio
  */
+
 public class AddressBookApp
 {
     /** Used to obtain user input. */
     private static Scanner input = new Scanner(System.in);
+    private static Map<String,Option> options;
 
     public static void main(String[] args)
     {
@@ -16,6 +18,9 @@ public class AddressBookApp
 
         System.out.print("\nEnter address book filename: ");
         fileName = input.nextLine();
+        options = new HashMap<String,Option>();
+        options.put(1,new SearchByName());
+        options.put(2,new SearchByEmail());
 
         try
         {
@@ -73,7 +78,7 @@ public class AddressBookApp
      */
     private static void showMenu(AddressBook addressBook)
     {
-        Entry entry = new Entry();
+        String entry;
         boolean done = false;
         while(!done)
         {
@@ -86,7 +91,7 @@ public class AddressBookApp
                     case 1:
                         System.out.print("Enter name: ");
                         String name = input.nextLine();
-                        entry = addressBook.findName(name);
+                        entry = options.get(1).doOption(name,addressBook);
                         if(entry!=null)
                         {
                             System.out.println(entry.toString());
@@ -96,13 +101,13 @@ public class AddressBookApp
                     case 2:
                         System.out.print("Enter email address: ");
                         String email = input.nextLine();
-                        entry = addressBook.findAddress(email);
+                        entry = options.get(2).doOption(email,addressBook);
                         if(entry!=null)
                         {
                             System.out.println(entry.toString());
                         }
                         break;
-                        
+
                     case 3:
                         done = true;
                         break;
