@@ -19,8 +19,8 @@ public class AddressBookApp
         System.out.print("\nEnter address book filename: ");
         fileName = input.nextLine();
         options = new HashMap<String,Option>();
-        options.put(1,new SearchByName());
-        options.put(2,new SearchByEmail());
+        options.put("1",new SearchByName());
+        options.put("2",new SearchByEmail());
 
         try
         {
@@ -91,20 +91,20 @@ public class AddressBookApp
                     case 1:
                         System.out.print("Enter name: ");
                         String name = input.nextLine();
-                        entry = options.get(1).doOption(name,addressBook);
+                        entry = options.get("1").doOption(name,addressBook);
                         if(entry!=null)
                         {
-                            System.out.println(entry.toString());
+                            System.out.println(entry);
                         }
                         break;
 
                     case 2:
                         System.out.print("Enter email address: ");
                         String email = input.nextLine();
-                        entry = options.get(2).doOption(email,addressBook);
+                        entry = options.get("2").doOption(email,addressBook);
                         if(entry!=null)
                         {
-                            System.out.println(entry.toString());
+                            System.out.println(entry);
                         }
                         break;
 

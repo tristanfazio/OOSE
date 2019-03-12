@@ -7,14 +7,11 @@
 
 public class SearchByName implements Option
 {
-
-    private int label;
-
-    public SearchByName(int i)
+    public SearchByName()
     {
-      label=i;
+
     }
-    @override
+    @Override
     public String doOption(String name,AddressBook addressBook)
     {
       return addressBook.findName(name).toString();
