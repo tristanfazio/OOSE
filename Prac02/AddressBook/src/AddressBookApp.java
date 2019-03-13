@@ -86,12 +86,13 @@ public class AddressBookApp
             System.out.println("(1) Search by name, (2) Search by email, (3) Quit");
             try
             {
-                switch(Integer.parseInt(input.nextLine()))
+                option = Integer.parseInt(input.nextLine());
+                switch(option)
                 {
                     case 1:
                         System.out.print("Enter name: ");
                         String name = input.nextLine();
-                        entry = options.get("1").doOption(name,addressBook);
+                        entry = options.get(Integer.toString(option)).doOption(name,addressBook);
                         if(entry!=null)
                         {
                             System.out.println(entry);
@@ -101,7 +102,7 @@ public class AddressBookApp
                     case 2:
                         System.out.print("Enter email address: ");
                         String email = input.nextLine();
-                        entry = options.get("2").doOption(email,addressBook);
+                        entry = options.get(Integer.toString(option)).doOption(email,addressBook);
                         if(entry!=null)
                         {
                             System.out.println(entry);
