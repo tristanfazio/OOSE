@@ -7,7 +7,7 @@
  public interface Option
  {
     //abstract option call
-    String doOption(String term,AddressBook addresBook);
+    String doOption(String term);
     //get label
 
  }

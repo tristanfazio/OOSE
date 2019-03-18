@@ -10,7 +10,7 @@ public class AddressBookApp
 {
     /** Used to obtain user input. */
     private static Scanner input = new Scanner(System.in);
-    private static Map<String,Option> options;
+    private static Map<int,Option> options;
 
     public static void main(String[] args)
     {
@@ -18,9 +18,9 @@ public class AddressBookApp
 
         System.out.print("\nEnter address book filename: ");
         fileName = input.nextLine();
-        options = new HashMap<String,Option>();
-        options.put("1",new SearchByName());
-        options.put("2",new SearchByEmail());
+        options = new HashMap<int,Option>();
+        options.put(1,new SearchByName(AddressBook));
+        options.put(2,new SearchByEmail(AddressBook));
 
         try
         {
@@ -79,45 +79,36 @@ public class AddressBookApp
     private static void showMenu(AddressBook addressBook)
     {
         String entry;
-        boolean done = false;
+        Option option;
+        int choice;
+
         while(!done)
         {
+            String text = null;
             int option;
             System.out.println("(1) Search by name, (2) Search by email, (3) Quit");
             try
             {
-                option = Integer.parseInt(input.nextLine());
-                switch(option)
+                choice = Integer.parseInt(input.nextLine());
+
+                option = options.get(choice);
+                if(option.reqText())
                 {
-                    case 1:
-                        System.out.print("Enter name: ");
-                        String name = input.nextLine();
-                        entry = options.get(Integer.toString(option)).doOption(name,addressBook);
-                        if(entry!=null)
-                        {
-                            System.out.println(entry);
-                        }
-                        break;
-
-                    case 2:
-                        System.out.print("Enter email address: ");
-                        String email = input.nextLine();
-                        entry = options.get(Integer.toString(option)).doOption(email,addressBook);
-                        if(entry!=null)
-                        {
-                            System.out.println(entry);
-                        }
-                        break;
-
-                    case 3:
-                        done = true;
-                        break;
+                  System.out.println("Enter the search term");
+                  text = input.nextLine();
                 }
+                
+                option.doOption(text);
+
             }
             catch(NumberFormatException e)
             {
                 // The user entered something non-numerical.
                 System.out.println("Enter a number");
+            }
+            catch(NullPointerException e)
+            {
+              done=true;
             }
         }
     }

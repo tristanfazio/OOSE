@@ -7,12 +7,13 @@
 
  public class SearchByEmail implements Option
  {
-    public SearchByEmail()
+    AddressBook addressBook;
+    public SearchByEmail(AddressBook inBook)
     {
-
+      addressBook = inBook;
     }
      @Override
-     public String doOption(String email,AddressBook addressBook)
+     public String doOption(String email)
      {
        return addressBook.findAddress(email).toString();
      }
