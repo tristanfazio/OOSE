@@ -16,4 +16,9 @@ public class SearchByName implements Option
     {
       return addressBook.findName(name).toString();
     }
+    @Override
+    public boolean requiresText()
+    {
+      return true;
+    }
 }

@@ -8,6 +8,6 @@
  {
     //abstract option call
     String doOption(String term,AddressBook addresBook);
-    //get label
-
+    //abstract text check
+    boolean doOption();
  }

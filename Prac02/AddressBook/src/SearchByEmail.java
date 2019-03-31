@@ -16,4 +16,9 @@
      {
        return addressBook.findAddress(email).toString();
      }
+     @Override
+    public boolean requiresText()
+    {
+      return true;
+    }
  }
