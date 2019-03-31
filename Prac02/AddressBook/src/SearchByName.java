@@ -7,19 +7,25 @@
 
 public class SearchByName implements Option
 {
-    AddressBook addressBook;
-    public SearchByName(AddressBook inBook)
-    {
-      addressBook = inBook;
-    }
-    @Override
-    public String doOption(String name)
-    {
-      return addressBook.findName(name).toString();
-    }
-    @Override
-    public boolean requiresText()
-    {
-      return true;
-    }
+  AddressBook addressBook;
+  String optionsText = "Search By Name";
+  public SearchByName(AddressBook inBook)
+  {
+    addressBook = inBook;
+  }
+  @Override
+  public void doOption(String name)
+  {
+    System.out.println(addressBook.findName(name).toString());
+  }
+  @Override
+  public Boolean requiresText()
+  {
+    return true;
+  }
+  @Override
+  public String getOptionsText()
+  {
+    return optionsText;
+  }
 }

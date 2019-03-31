@@ -43,14 +43,13 @@ public class Entry
 
     public String toString()
     {
-        String string = "";
-        string+="------------------------------\n";
-        string+=(name + ":");
+        String outString = "";
+        outString+="\n------------------------------\n";
+        outString+=(name + ":");
         for(String s: addresses)
         {
-           string+=("\n\t" + s);
+            outString+=("\n\t" + s);
         }
-        string+=("\n------------------------------");
-        return string;
+        return outString;
     }
 }

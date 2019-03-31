@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 /**
  * Interface class for handling option calls
  * @author Tristan Fazio
@@ -7,7 +9,8 @@
  public interface Option
  {
     //abstract option call
-    String doOption(String term,AddressBook addresBook);
+    void doOption(String term);
     //abstract text check
-    boolean doOption();
+    Boolean requiresText();
+    String getOptionsText();  
  }

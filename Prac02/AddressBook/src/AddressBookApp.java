@@ -10,21 +10,28 @@ public class AddressBookApp
 {
     /** Used to obtain user input. */
     private static Scanner input = new Scanner(System.in);
-    private static Map<int,Option> options;
+    private static HashMap<Integer,Option> options;
 
     public static void main(String[] args)
     {
-        String fileName, entryName;
+        String fileName;
 
         System.out.print("\nEnter address book filename: ");
         fileName = input.nextLine();
-        options = new HashMap<int,Option>();
-        options.put(1,new SearchByName(AddressBook));
-        options.put(2,new SearchByEmail(AddressBook));
+        options = new HashMap<Integer,Option>();
+        
 
         try
         {
             AddressBook addressBook = readAddressBook(fileName);
+
+            System.out.println("Read Successfull");
+
+            options.put(1,new SearchByName(addressBook));
+            options.put(2,new SearchByEmail(addressBook));
+            options.put(3,new PrintAll(addressBook));
+
+
             showMenu(addressBook);
         }
         catch(IOException e)
@@ -78,21 +85,27 @@ public class AddressBookApp
      */
     private static void showMenu(AddressBook addressBook)
     {
-        String entry;
         Option option;
         int choice;
+        boolean done = false;
 
         while(!done)
         {
             String text = null;
-            int option;
-            System.out.println("(1) Search by name, (2) Search by email, (3) Quit");
+            String menuString ="\n";
+            int i;
+            for(i=0;i<options.size();i++)
+            {
+                menuString+="(" + (i+1) + ") " + options.get(i+1).getOptionsText() + " ";
+            }
+            menuString+="(" + (i+1) + ") Quit";
+            System.out.println(menuString);
             try
             {
                 choice = Integer.parseInt(input.nextLine());
 
                 option = options.get(choice);
-                if(option.reqText())
+                if(option.requiresText())
                 {
                   System.out.println("Enter the search term");
                   text = input.nextLine();

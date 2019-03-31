@@ -53,4 +53,8 @@ public class AddressBook
           addressMap.put(s,entry);
         }
     }
+    public Map getNameMap()
+    {
+      return nameMap;
+    }
 }

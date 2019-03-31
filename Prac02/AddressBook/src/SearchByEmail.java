@@ -5,21 +5,27 @@
  * @author Tristan Fazio
  */
 
- public class SearchByEmail implements Option
- {
-    AddressBook addressBook;
-    public SearchByEmail(AddressBook inBook)
-    {
-      addressBook = inBook;
-    }
-     @Override
-     public String doOption(String email)
-     {
-       return addressBook.findAddress(email).toString();
-     }
-     @Override
-    public boolean requiresText()
-    {
-      return true;
-    }
- }
+public class SearchByEmail implements Option
+{
+  AddressBook addressBook;
+  String optionsText = "Search By Email";
+  public SearchByEmail(AddressBook inBook)
+  {
+    addressBook = inBook;
+  }
+  @Override
+  public void doOption(String email)
+  {
+    System.out.println(addressBook.findAddress(email).toString());
+  }
+  @Override
+  public Boolean requiresText()
+  {
+    return true;
+  }
+  @Override
+  public String getOptionsText()
+  {
+    return optionsText;
+  }
+}
