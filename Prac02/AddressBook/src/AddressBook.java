@@ -53,7 +53,7 @@ public class AddressBook
           addressMap.put(s,entry);
         }
     }
-    public Map getNameMap()
+    public Map<String,Entry> getNameMap()
     {
       return nameMap;
     }
