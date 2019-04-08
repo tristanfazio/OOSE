@@ -1,5 +1,8 @@
 import java.io.*;
 import java.util.*;
+import addressbook.model.Entry;
+import addressbook.model.Addressbook;
+import addressbook.view.ui;
 
 /**
  * A simple address book application.
