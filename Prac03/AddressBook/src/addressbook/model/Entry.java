@@ -1,4 +1,7 @@
+package addressbook.model;
+
 import java.util.*;
+
         
 /**
  * Represents a single address book entry.

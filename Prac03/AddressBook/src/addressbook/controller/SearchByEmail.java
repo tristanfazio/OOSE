@@ -5,8 +5,10 @@
  * @author Tristan Fazio
  */
 
+package addressbook.controller;
+
 import addressbook.model.Entry;
-import addressbook.model.Addressbook;
+import addressbook.model.AddressBook;
 
 public class SearchByEmail implements Option
 {

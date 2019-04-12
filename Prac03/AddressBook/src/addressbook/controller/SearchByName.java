@@ -5,13 +5,17 @@
  * @author Tristan Fazio
  */
 
+package addressbook.controller;
+
 import addressbook.model.Entry;
-import addressbook.model.Addressbook;
+import addressbook.model.AddressBook;
+import addressbook.view.UI;
 
 public class SearchByName implements Option
 {
   AddressBook addressBook;
   String optionsText = "Search By Name";
+  
   public SearchByName(AddressBook inBook)
   {
     addressBook = inBook;

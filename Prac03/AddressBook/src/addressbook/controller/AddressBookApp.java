@@ -1,3 +1,5 @@
+package addressbook.controller;
+
 /**
  * A simple address book application.
  * @author Dave and Tristan Fazio
@@ -6,8 +8,8 @@
 import java.io.*;
 import java.util.*;
 import addressbook.model.Entry;
-import addressbook.model.Addressbook;
-import addressbook.view.ui;
+import addressbook.model.AddressBook;
+import addressbook.view.UI;
 
 
 public class AddressBookApp
@@ -18,29 +20,62 @@ public class AddressBookApp
 
     public static void main(String[] args)
     {
-        String fileName;
-
-        System.out.print("\nEnter address book filename: ");
-        fileName = input.nextLine();
+        String fileName = "";
+        Option option;
+        int choice;
+        String text = null;
+        boolean done = false;
         options = new HashMap<Integer,Option>();
-        
+        AddressBook addressBook = new AddressBook();
+        UI ui  = new UI();
 
         try
         {
-            AddressBook addressBook = readAddressBook(fileName);
+            //get filename
+            ui.printMessage("Enter address book filename: ");
+            fileName = input.nextLine();
 
-            System.out.println("Read Successfull");
+            //read addressbook
+            addressBook = readAddressBook(fileName);
 
+            //create options list
             options.put(1,new SearchByName(addressBook));
             options.put(2,new SearchByEmail(addressBook));
             options.put(3,new PrintAll(addressBook));
-
-
-            showMenu(addressBook);
         }
         catch(IOException e)
         {
-            System.out.println("Could not read from " + fileName + ": " + e.getMessage());
+            ui.printMessage("Could not read from " + fileName + ": " + e.getMessage());
+        }
+
+        ui.printMessage("Read Successfull");
+
+        //show menu
+        while(!done)
+        {
+            ui.showMenu(options, addressBook);
+            try
+            {
+                choice = Integer.parseInt(input.nextLine());
+
+                option = options.get(choice);
+                if(option.requiresText())
+                {
+                    System.out.println("Enter the search term");
+                    text = input.nextLine();
+                }
+                
+                option.doOption(text);
+            }
+            catch(NumberFormatException e)
+            {
+                // The user entered something non-numerical.
+                ui.printMessage("Enter a number");
+            }
+            catch(NullPointerException e)
+            {
+                done=true;
+            }
         }
     }
 

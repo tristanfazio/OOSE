@@ -5,9 +5,11 @@
  * @author Tristan Fazio
  */
 
+package addressbook.controller;
+
 import java.util.Map;
 import addressbook.model.Entry;
-import addressbook.model.Addressbook;
+import addressbook.model.AddressBook;
 
 public class PrintAll implements Option
 {
