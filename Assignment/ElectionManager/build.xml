@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="AddressBook" basedir="." default="clean-build">
+<project name="ElectionManager" basedir="." default="clean-build">
     <property name="src.dir"       value="src"/>
     <property name="resources.dir" value="resources"/>
     <property name="build.dir"     value="build"/>
     <property name="dist.dir"      value="dist"/>
-    <property name="main-class"    value="addressbook.controller.AddressBookApp"/>
+    <property name="main-class"    value="electionmanager.controller.ElectionmanagerApp.java"/>
     
     <target name="clean">
         <delete dir="${build.dir}"/>
