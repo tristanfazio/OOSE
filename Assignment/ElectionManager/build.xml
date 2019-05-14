@@ -4,7 +4,7 @@
     <property name="resources.dir" value="resources"/>
     <property name="build.dir"     value="build"/>
     <property name="dist.dir"      value="dist"/>
-    <property name="main-class"    value="electionmanager.controller.ElectionmanagerApp.java"/>
+    <property name="main-class"    value="electionmanager.controller.ElectionManagerApp"/>
     
     <target name="clean">
         <delete dir="${build.dir}"/>

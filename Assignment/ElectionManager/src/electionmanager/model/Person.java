@@ -2,6 +2,7 @@ package electionmanager.model;
 
 import java.util.*;
 
+
 /******
 *Person Class
 *Represents a person object
@@ -17,12 +18,14 @@ public abstract class Person
     //CLASSFIELDS
     private int idNum;
     private String name;
-    private String type;
+    protected String type;
     private Set<Contact> contacts;
     //CONSTRUCTOR
-    public Person()
+    public Person(int inID, String inName, Set<Contact> inContacts)
     {
-
+        this.idNum = inID;
+        this.name = inName;
+        this.contacts = inContacts;
     }
     //GETTERS
     public int getID(){return idNum;}

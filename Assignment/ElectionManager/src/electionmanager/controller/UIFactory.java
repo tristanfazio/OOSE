@@ -11,13 +11,7 @@ import java.util.*;
 *Curtin University
 ******/
 
-public class ElectionManagerApp
+public class UIFactory
 {
-    public static void main(String[] args)
-    {
-        //Variables
-
-        //show initial "header" splashscreen
-        //print menu options
-    }
+    
 }
