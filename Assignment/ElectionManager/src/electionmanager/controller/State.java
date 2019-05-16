@@ -1,9 +1,7 @@
 package electionmanager.controller;
 
-import java.util.*;
-
 /*****
-* Main app class for Election Manager
+* Interface for State objects
 * 
 * @author Tristan Fazio
 *Object Oriented Software Engineering
@@ -11,7 +9,11 @@ import java.util.*;
 *Curtin University
 ******/
 
-public class UIFactory
+public interface State
 {
-    
+    void add();
+    void remove();
+    void view();
+    void save();
+    void load();
 }

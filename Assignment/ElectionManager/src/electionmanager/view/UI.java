@@ -14,20 +14,26 @@ import java.util.*;
 public class UI
 {
     //CLASSFIELDS
-
-    public UI()
+    public void printMessage(String message)
     {
-
-    }
-    public void printMessgage(String message)
-    {
-        System.out.println("/n"+message);
+        System.out.println("\n"+message);
     }
     public void showStartupHeader()
     {
-        System.out.println("---------- Election Manager 9000 ----------");
-        System.out.println("\n Manage:");
-        System.out.println("\t (1) People, (2)Policy Areas, (3) Talking Points, (4)Social media Keywords");
-        System.out.println("\n=>");
+        System.out.println("\n");
+        System.out.println("-------------------- \tElection Manager 9000\t--------------------");
+        System.out.println("Author: Tristan Fazio\tObject Oriented Software Engineering\tSemester 1 2019");
+    }
+
+    public void showObjectMenu()
+    {
+        System.out.println("\nManage:");
+        System.out.println("\t(1) People, (2) Policy Areas, (3) Talking Points, (4) Social Media Keywords, (5) Save Data, (6) Load Data, (0) Exit");
+    }
+
+    public void showFunctionMenu(String context)
+    {
+        System.out.println("\n" + context + ":");
+        System.out.println("\n\t (1) Add, (2) Remove, (3) View, (0) Go Back");
     }
 }
