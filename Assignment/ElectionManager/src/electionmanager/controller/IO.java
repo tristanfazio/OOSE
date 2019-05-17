@@ -17,6 +17,14 @@ public class IO
 
     public int getInt()
     {
-        return scan.nextInt();
+        int out = scan.nextInt();
+        scan.nextLine();
+        return out;
+    }
+
+    public String getString()
+    {
+        String out =  scan.nextLine();
+        return out;
     }
 }

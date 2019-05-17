@@ -1,7 +1,7 @@
 package electionmanager.controller;
 
 /*****
-* Interface for State objects
+* Interface for Controller objects
 * 
 * @author Tristan Fazio
 *Object Oriented Software Engineering
@@ -9,11 +9,8 @@ package electionmanager.controller;
 *Curtin University
 ******/
 
-public interface State
+public interface IController
 {
-    void add();
-    void remove();
-    void view();
-    void save();
-    void load();
+    void execute();
+    String getContext();
 }

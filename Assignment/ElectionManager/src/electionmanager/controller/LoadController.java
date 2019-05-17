@@ -15,21 +15,24 @@ import electionmanager.model.*;
 *Curtin University
 ******/
 
-public class LoadState implements State
+public class LoadController implements IController
 {
     UI ui;
-    public LoadState(MenuController menuController,Set<Person>people,Set<PolicyArea>policies,Set<TalkingPoint>talkingpoints,Set<Keyword>keywords,UI ui,IO io)
+    String context;
+    public LoadController(Set<Person>people,Set<PolicyArea>policies,Set<TalkingPoint>talkingpoints,Set<Keyword>keywords,UI ui,IO io)
     {
         this.ui=ui;
+        context ="Load Data";
     }
-    public void load()
+
+    //GETTERS
+    public String getContext()
+    {
+        return context;
+    }
+
+    public void execute()
     {
         ui.printMessage("Data Loaded!");
     }
-
-    //METHODS
-    public void add(){}
-    public void remove(){}
-    public void view(){}
-    public void save(){}
 }

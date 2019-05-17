@@ -7,7 +7,7 @@ import electionmanager.model.*;
 
 
 /*****
-* Controller to the Add, Remove, View functions when observing Policy Objects
+* Controller to the Add, Remove, View functions when observing Keyword Objects
 * 
 * @author Tristan Fazio
 *Object Oriented Software Engineering
@@ -15,21 +15,17 @@ import electionmanager.model.*;
 *Curtin University
 ******/
 
-public class PolicyState implements State
+public class KeywordController extends ObjectController
 {
     //CLASSFIELDS
-    UI ui;
-    IO io;
-    Set<PolicyArea> policies;
+    Set<Keyword>keywords;
     
     //DEFAULT CONSTRUCTOR
-    public PolicyState(MenuController menuController,Set<PolicyArea>policies,UI ui,IO io)
+    public KeywordController(Set<Keyword>keywords,UI ui,IO io)
     {
-        this.ui=ui;
-        this.io=io;
-        this.policies=policies;
+        super(ui,io,"Social Media Keywords");
+        this.keywords=keywords;
     }
-
 
     //METHODS
     public void add()
@@ -41,16 +37,6 @@ public class PolicyState implements State
 
     }
     public void view()
-    {
-
-    }
-
-    public void load()
-    {
-
-    }
-    
-    public void save()
     {
 
     }

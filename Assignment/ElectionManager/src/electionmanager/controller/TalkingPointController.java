@@ -15,22 +15,23 @@ import electionmanager.model.*;
 *Curtin University
 ******/
 
-public class TalkingPointState implements State
+public class TalkingPointController extends ObjectController
 {
     //CLASSFIELDS
-    UI ui;
-    IO io;
     Set<TalkingPoint>talkingpoints;
-    
+
     //DEFAULT CONSTRUCTOR
-    public TalkingPointState(MenuController menuController,Set<TalkingPoint>talkingpoints,UI ui,IO io)
+    public TalkingPointController(Set<TalkingPoint>talkingpoints,UI ui,IO io)
     {
-        this.ui=ui;
-        this.io=io;
+        super(ui,io,"Talking Points");
         this.talkingpoints=talkingpoints;
     }
 
-
+    public String getContext()
+    {
+        return context;
+    }
+    
     //METHODS
     public void add()
     {
@@ -41,16 +42,6 @@ public class TalkingPointState implements State
 
     }
     public void view()
-    {
-
-    }
-
-    public void load()
-    {
-
-    }
-    
-    public void save()
     {
 
     }

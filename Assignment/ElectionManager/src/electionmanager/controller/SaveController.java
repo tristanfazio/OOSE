@@ -15,20 +15,22 @@ import electionmanager.model.*;
 *Curtin University
 ******/
 
-public class SaveState implements State
+public class SaveController implements IController
 {
+    //VARIABLES
     UI ui;
-    public SaveState(MenuController menuController,Set<Person>people,Set<PolicyArea>policies,Set<TalkingPoint>talkingpoints,Set<Keyword>keywords,UI ui,IO io)
+    String context;
+    //CONSTRUCTOR
+    public SaveController(Set<Person>people,Set<PolicyArea>policies,Set<TalkingPoint>talkingpoints,Set<Keyword>keywords,UI ui,IO io)
     {
         this.ui=ui;
+        context = "Save Data";
     }
-    public void save()
+    //METHODS
+    public void execute()
     {
         ui.printMessage("Data Saved!");
     }
-    //METHODS
-    public void add(){}
-    public void remove(){}
-    public void view(){}
-    public void load(){}
+
+    public String getContext(){return context;}
 }

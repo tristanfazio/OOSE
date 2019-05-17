@@ -1,6 +1,7 @@
 package electionmanager.view;
 
 import java.util.*;
+import electionmanager.controller.IController;
 
 /*****
 * UI class to handle interaction with user
@@ -25,10 +26,19 @@ public class UI
         System.out.println("Author: Tristan Fazio\tObject Oriented Software Engineering\tSemester 1 2019");
     }
 
-    public void showObjectMenu()
+    public void showObjectMenu(HashMap<Integer,IController> options)
     {
         System.out.println("\nManage:");
-        System.out.println("\t(1) People, (2) Policy Areas, (3) Talking Points, (4) Social Media Keywords, (5) Save Data, (6) Load Data, (0) Exit");
+        String menuString ="\t";
+        int i;
+        //print options in menu string, except final exit option as 0 key at end of string
+        for(i=0;i<options.size()-1;i++)   
+        {
+            menuString+="(" + (i+1) + ") " + options.get(i+1).getContext() + " ";
+        }
+        //append quit option
+        menuString+="(0) Quit";
+        System.out.println(menuString);
     }
 
     public void showFunctionMenu(String context)

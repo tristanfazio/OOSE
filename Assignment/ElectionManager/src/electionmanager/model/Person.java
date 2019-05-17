@@ -55,5 +55,18 @@ public abstract class Person
         contacts.remove(inContact);
     }
     //METHODS
+    public String toString()
+    {
+        String outString ="";
+        outString += "\nID: " + idNum;
+        outString += "\nName: " + name;
+        outString += "\nType: " + type;
+        outString += "\nContacts: ";
+        for(Contact c : contacts)
+        {
+            outString += "\n\t" + c.toString();
+        }
+        return outString;
+    }
 
 }
