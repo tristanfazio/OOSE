@@ -18,7 +18,7 @@ import electionmanager.model.*;
 public class MenuController
 {
     //CLASS FIELDS
-    private Map<int,Person> people;
+    private Map<Integer,Person> people;
     private Map<String,PolicyArea> policies;
     private Map<String,TalkingPoint> talkingpoints;
     private Map<String,Keyword> keywords;
@@ -37,7 +37,7 @@ public class MenuController
     private HashMap<Integer,IController> options;
 
     //DEFAULT CONTSTRUCTOR
-    public MenuController(UI ui,IO io,Set<Person>people,Set<PolicyArea>policies,Set<TalkingPoint>talkingpoints,Set<Keyword>keywords)
+    public MenuController(UI ui,IO io,Map<Integer,Person>people,Map<String,PolicyArea>policies,Map<String,TalkingPoint>talkingpoints,Map<String,Keyword>keywords)
     {
         //set dependency references
         this.people = people;

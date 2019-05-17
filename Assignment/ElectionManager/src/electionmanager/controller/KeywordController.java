@@ -18,10 +18,10 @@ import electionmanager.model.*;
 public class KeywordController extends ObjectController
 {
     //CLASSFIELDS
-    Set<Keyword>keywords;
+    Map<String,Keyword>keywords;
     
     //DEFAULT CONSTRUCTOR
-    public KeywordController(Set<Keyword>keywords,UI ui,IO io)
+    public KeywordController(Map<String,Keyword>keywords,UI ui,IO io)
     {
         super(ui,io,"Social Media Keywords");
         this.keywords=keywords;

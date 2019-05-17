@@ -18,10 +18,10 @@ import electionmanager.model.*;
 public class PolicyController extends ObjectController
 {
     //CLASSFIELDS
-    Set<PolicyArea> policies;
+    Map<String,PolicyArea> policies;
     
     //DEFAULT CONSTRUCTOR
-    public PolicyController(Set<PolicyArea>policies,UI ui,IO io)
+    public PolicyController(Map<String,PolicyArea>policies,UI ui,IO io)
     {
         super(ui,io,"Policy Areas");
         this.policies=policies;

@@ -18,10 +18,10 @@ import electionmanager.model.*;
 public class TalkingPointController extends ObjectController
 {
     //CLASSFIELDS
-    Set<TalkingPoint>talkingpoints;
+    Map<String,TalkingPoint>talkingpoints;
 
     //DEFAULT CONSTRUCTOR
-    public TalkingPointController(Set<TalkingPoint>talkingpoints,UI ui,IO io)
+    public TalkingPointController(Map<String,TalkingPoint>talkingpoints,UI ui,IO io)
     {
         super(ui,io,"Talking Points");
         this.talkingpoints=talkingpoints;

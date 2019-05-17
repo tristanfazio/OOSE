@@ -18,10 +18,10 @@ public class ElectionManagerApp
     public static void main(String[] args)
     {
         //Variables
-        Map<int,Person> people = new HashMap<>();
-        Map<PolicyArea> policies = new HashMap<>();
-        Map<TalkingPoint> talkingpoints = new HashMap<>();
-        Map<Keyword> keywords = new HashMap<>();
+        Map<Integer,Person> people = new HashMap<>();
+        Map<String,PolicyArea> policies = new HashMap<>();
+        Map<String,TalkingPoint> talkingpoints = new HashMap<>();
+        Map<String,Keyword> keywords = new HashMap<>();
         UI ui = new UI();
         IO io = new IO();
         

@@ -18,15 +18,15 @@ import electionmanager.model.*;
 public class PersonController extends ObjectController
 {
     //CLASSFIELDS--------------------------------------------------
-    Map<int,Person> people;
+    Map<Integer,Person> people;
     IDGenerator idGenerator;
 
     //DEFAULT CONSTRUCTOR
-    public PersonController(Map<int,Person>people,UI ui,IO io)
+    public PersonController(Map<Integer,Person>people,UI ui,IO io)
     {
-        super(ui,io,"Person");
+        super(ui,io,"People");
         this.people=people;
-        idGenerator = new IDGenerator();
+        idGenerator = IDGenerator.getInstance();
     }
 
     //GETTERS--------------------------------------------------
@@ -53,14 +53,19 @@ public class PersonController extends ObjectController
         //create person(determine by type)
         Person newPerson = createPerson(id,name,type,contacts);
         //add to people set
-        people.add(newPerson);
+        people.put(id,newPerson);
+        ui.printMessage(newPerson.getName() + " Created Successfully!");
     }
 
     //Implementation of the remove method for Person Class
     //searches the people object for the user specified "person" object, and removes it from storage
     public void remove()
     {
-
+        ui.printMessage("Enter the ID of the person you wish to remove");
+        int id = io.getInt();
+        Person p = people.get(id);
+        people.remove(id);
+        ui.printMessage("Person: " + p.getName() + " ID: " + p.getID() + "\nRemoved from storage ...");
     }
 
     //Implementation of the view methods for Person Class
@@ -68,8 +73,9 @@ public class PersonController extends ObjectController
     public void view()
     {
         ui.printMessage("--------------------");
-        for(Person p : people)
+        for(Map.Entry<Integer, Person> entry : people.entrySet())
         {
+            Person p = entry.getValue();
             ui.printMessage(p.toString());
         }
         ui.printMessage("--------------------");

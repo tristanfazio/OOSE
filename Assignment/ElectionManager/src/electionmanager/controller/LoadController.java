@@ -19,7 +19,7 @@ public class LoadController implements IController
 {
     UI ui;
     String context;
-    public LoadController(Set<Person>people,Set<PolicyArea>policies,Set<TalkingPoint>talkingpoints,Set<Keyword>keywords,UI ui,IO io)
+    public LoadController(Map<Integer,Person>people,Map<String,PolicyArea>policies,Map<String,TalkingPoint>talkingpoints,Map<String,Keyword>keywords,UI ui,IO io)
     {
         this.ui=ui;
         context ="Load Data";
