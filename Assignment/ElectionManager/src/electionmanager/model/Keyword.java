@@ -1,8 +1,5 @@
 package electionmanager.model;
 
-import java.util.*;
-
-
 /******
 *Keyword Class
 *Represents a Keyword object

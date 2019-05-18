@@ -17,19 +17,28 @@ import electionmanager.model.*;
 
 public class PolicyController extends ObjectController
 {
-    //CLASSFIELDS
+    //CLASSFIELDS--------------------------------------------------
     Map<String,PolicyArea> policies;
     
-    //DEFAULT CONSTRUCTOR
+    //DEFAULT CONSTRUCTOR--------------------------------------------------
     public PolicyController(Map<String,PolicyArea>policies,UI ui,IO io)
     {
         super(ui,io,"Policy Areas");
         this.policies=policies;
     }
 
-    //METHODS
+    //METHODS--------------------------------------------------
     public void add()
     {
+        //get policy name
+        ui.printMessage("Enter Policy Name:");
+        String name = io.getString();
+        //get the policy type
+        ui.printMessage("Choose Policy area:");
+        String type = chooseType();
+        //create policy object
+        PolicyArea newPolicy = new PolicyArea()
+        //add to policy storage
 
     }
     public void remove()

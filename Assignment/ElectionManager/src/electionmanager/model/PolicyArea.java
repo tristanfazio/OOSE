@@ -25,6 +25,7 @@ public class PolicyArea
     {   
         this.name = inName;
         this.category = inCategory;
+        talkingPoints = new HashSet<TalkingPoint>();
     }
 
     //GETTERS
@@ -34,7 +35,7 @@ public class PolicyArea
     public Set<Keyword> getKeywords(){return keywords;}
 
     //SETTERS
-    public void setName(String inName)
+    public void setName(String inName) 
     {
         this.name = inName;
     }

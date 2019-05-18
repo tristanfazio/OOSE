@@ -1,9 +1,9 @@
 package electionmanager.controller;
 
-import java.util.*;
+
 import electionmanager.view.UI;
 import electionmanager.controller.IO;
-import electionmanager.model.*;
+
 
 /*****
 * Abstract Object Controller Class.

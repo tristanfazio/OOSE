@@ -71,7 +71,6 @@ public class MenuController
     public void run()
     {
         int choice;
-        String context ="";
         //out object loop
         do
         {

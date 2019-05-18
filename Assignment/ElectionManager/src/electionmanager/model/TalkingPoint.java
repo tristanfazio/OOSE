@@ -1,8 +1,5 @@
 package electionmanager.model;
 
-import java.util.*;
-
-
 /******
 *TalkingPoint Class
 *Represents a TalkingPoint object

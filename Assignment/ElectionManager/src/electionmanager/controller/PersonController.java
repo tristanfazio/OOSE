@@ -41,10 +41,8 @@ public class PersonController extends ObjectController
         //get name
         ui.printMessage("Enter Name:");
         String name = io.getString();
-
         //get type
         int type = chooseType();
-
         //get contact details
         ui.printMessage("Enter " + name + "'s contact information");
         Set<Contact> contacts = createContacts();
