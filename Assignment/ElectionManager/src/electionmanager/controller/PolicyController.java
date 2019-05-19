@@ -37,16 +37,32 @@ public class PolicyController extends ObjectController
         ui.printMessage("Choose Policy area:");
         String type = chooseType();
         //create policy object
-        PolicyArea newPolicy = new PolicyArea()
+        PolicyArea newPolicy = new PolicyArea(name,type);
         //add to policy storage
-
+        policies.put(newPolicy.getName(),newPolicy);
     }
+
     public void remove()
     {
 
     }
+
     public void view()
     {
 
+    }
+
+    private String chooseType()
+    {
+        int choice;
+        String type ="";
+        do
+        {
+            ui.printMessage("Select type:\n\t(1) Education, (2) Defence, (3) Workplace Relations, (4) Custom...");
+            choice = io.getInt();
+        }
+        while(choice>4||choice<1);
+        
+        return type;
     }
 }
