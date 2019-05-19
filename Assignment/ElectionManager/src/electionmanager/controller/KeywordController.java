@@ -21,7 +21,7 @@ public class KeywordController extends ObjectController
     Map<String,Keyword>keywords;
     
     //DEFAULT CONSTRUCTOR
-    public KeywordController(Map<String,Keyword>keywords,UI ui,IO io)
+    public KeywordController(Map<String,Keyword>keywords,Map<String,PolicyArea>policies,UI ui,IO io)
     {
         super(ui,io,"Social Media Keywords");
         this.keywords=keywords;

@@ -25,4 +25,13 @@ public class Keyword
     //GETTERS
     public String getWord(){return wordString;}
     public PolicyArea getRelatedPolicy(){return relatedPolicy;}
+
+    //METHODS
+    @Override
+    public String toString()
+    {
+        String outString = "Keyword: " + wordString;
+        outString += "\n\t Related to: " + relatedPolicy.getName();
+        return outString;
+    }
 }

@@ -50,8 +50,8 @@ public class MenuController
         //create Controller objects
         personController = new PersonController(people,ui,io);
         policyController = new PolicyController(policies,ui,io);
-        talkingPointController = new TalkingPointController(talkingpoints,ui,io);
-        keywordController = new KeywordController(keywords,ui,io);
+        talkingPointController = new TalkingPointController(talkingpoints,policies,ui,io);
+        keywordController = new KeywordController(keywords,policies,ui,io);
         loadController = new LoadController(people,policies,talkingpoints,keywords,ui,io);
         saveController = new SaveController(people,policies,talkingpoints,keywords,ui,io);
         exitController = new ExitController(ui);

@@ -62,21 +62,36 @@ public class PersonController extends ObjectController
         ui.printMessage("Enter the ID of the person you wish to remove");
         int id = io.getInt();
         Person p = people.get(id);
-        people.remove(id);
-        ui.printMessage("Person: " + p.getName() + " ID: " + p.getID() + "\nRemoved from storage ...");
+        p = people.remove(id);
+        if(p==null)
+        {
+            ui.printMessage("No one with ID of " + id + " found");
+        }
+        else
+        {
+            ui.printMessage("Person: " + p.getName() + " ID: " + p.getID() + "\nRemoved from storage ...");
+
+        }
     }
 
     //Implementation of the view methods for Person Class
     //lists all the Person objects stored in the people storage.
     public void view()
     {
-        ui.printMessage("--------------------");
-        for(Map.Entry<Integer, Person> entry : people.entrySet())
+        if(people.isEmpty())
         {
-            Person p = entry.getValue();
-            ui.printMessage(p.toString());
+            ui.printMessage("There are no people currently stored");
         }
-        ui.printMessage("--------------------");
+        else
+        {
+            ui.printMessage("--------------------\nList of all People:");
+            for(Map.Entry<Integer, Person> entry : people.entrySet())
+            {
+                Person p = entry.getValue();
+                ui.printMessage(p.toString());
+            }
+            ui.printMessage("--------------------");
+        }
     }
 
     //Private method to handle selecting which type of person to construct

@@ -19,23 +19,21 @@ public class TalkingPointController extends ObjectController
 {
     //CLASSFIELDS
     Map<String,TalkingPoint>talkingpoints;
+    Map<String,PolicyArea>policies;
 
     //DEFAULT CONSTRUCTOR
-    public TalkingPointController(Map<String,TalkingPoint>talkingpoints,UI ui,IO io)
+    public TalkingPointController(Map<String,TalkingPoint>talkingpoints,Map<String,PolicyArea>policies,UI ui,IO io)
     {
         super(ui,io,"Talking Points");
         this.talkingpoints=talkingpoints;
+        this.policies=policies;
     }
 
-    public String getContext()
-    {
-        return context;
-    }
-    
     //METHODS
     public void add()
     {
-
+        //enter the talking point
+        
     }
     public void remove()
     {
