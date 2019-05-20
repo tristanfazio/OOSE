@@ -65,37 +65,30 @@ public class PolicyArea
     @Override
     public String toString()
     {
-        System.out.println(1);
         String outString ="";
-        outString += "\nName: " + name;
+        outString += "Name: " + name;
         outString += "\nCategory: " + category;
         outString += "\nTalking Points: ";
         if(talkingPoints.isEmpty())
         {
-            System.out.println(2);
             outString += "\n\t" + "No talking points found";
         }
         else
         {
-            System.out.println(3);
             for(TalkingPoint t : talkingPoints)
             {
-                System.out.println(4);
                 outString += "\n\t" + t.getWord();
             }
         }
-        System.out.println(5);
         outString += "\nKeywords: ";
         if(keywords.isEmpty())
         {
-            System.out.println(6);
             outString += "\n\t" + "No keywords found";
         }
         else
         {
             for(Keyword k : keywords)
             {
-                System.out.println(7);
                 outString += "\n\t" + k.getWord();
             }
         }
