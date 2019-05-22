@@ -56,11 +56,24 @@ public class TalkingPointController extends ObjectController
 
     public void remove()
     {
-
+        
     }
     public void view()
     {
-
+        if(talkingPoints.isEmpty())
+        {
+            ui.printMessage("There are no Talking Points currently stored");
+        }
+        else
+        {
+            ui.printMessage("--------------------\nList of all Talking Points:");
+            for(Map.Entry<String, TalkingPoint> entry : talkingPoints.entrySet())
+            {
+                TalkingPoint tp = entry.getValue();
+                ui.printMessage(tp.toString());
+            }
+            ui.printMessage("--------------------");
+        }
     }
 
     private PolicyArea findPolicy()

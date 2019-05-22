@@ -92,7 +92,6 @@ public class PolicyArea
                 outString += "\n\t" + k.getWord();
             }
         }
-        System.out.println(8);
         return outString;
     }
 }

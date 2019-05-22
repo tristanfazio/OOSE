@@ -48,17 +48,61 @@ public class PolicyController extends ObjectController
         //get value to remove
         ui.printMessage("Enter the Name of the Policy you wish to remove");
         String name = io.getString();
-        //remove value
-        PolicyArea r = policies.remove(name);
-        //if null, policy not found, notify
-        if(r==null)
+        //check if policy exists
+        if(policies.containsKey(name))
         {
-            ui.printMessage(name + " not found, please try again");
+            //found
+            PolicyArea p = policies.get(name);
+            //list talkingpoints and keywords
+            ui.printMessage(name + " found");
+            Set<TalkingPoint> tp = p.getTalkingPoints();
+            if(!tp.isEmpty())
+            {
+                //has talking points
+                ui.printMessage("Attached Talking Points: ");
+                //print all talking points
+                Iterator<TalkingPoint> iterator = tp.iterator();
+                String outString = "";
+                while(iterator.hasNext())
+                {
+                   outString+=(iterator.next().getWord());
+                }
+                ui.printMessage(outString);
+            }
+            Set<Keyword> kw = p.getKeywords();
+            if(!kw.isEmpty())
+            {
+                //has talking points
+                ui.printMessage("Attached Keywords: ");
+                //print all talking points
+                Iterator<Keyword> iterator = kw.iterator();
+                String outString = "";
+                while(iterator.hasNext())
+                {
+                   outString+=(iterator.next().getWord());
+                }
+                ui.printMessage(outString);
+            }
+            //check if remove ok?
+            ui.printMessage("Would you still like to remove " + name+"?\n\t(1) Yes, (2) No,");
+            int choice = io.getInt();
+            if(choice==1)
+            {
+                //remove talking poitns and keywords
+                tp.clear();
+                kw.clear();
+                //remove policy
+                policies.remove(name);
+                ui.printMessage("Removed " + name);
+            }
+
         }
         else
         {
-            ui.printMessage(r.getName() + " removed successfully");
+            //not found
+            ui.printMessage(name + " not found");
         }
+        
     }
 
     public void view()
