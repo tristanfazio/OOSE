@@ -1,6 +1,7 @@
 package electionmanager.controller;
 
 import java.util.*;
+
 import electionmanager.view.UI;
 import electionmanager.controller.IO;
 import electionmanager.model.*;
@@ -33,6 +34,7 @@ public class MenuController
     private IController saveController;
     private IController loadController;
     private IController exitController;
+    private IController notificationController;
 
     private HashMap<Integer,IController> options;
 
@@ -55,6 +57,7 @@ public class MenuController
         loadController = new LoadController(people,policies,talkingpoints,keywords,ui,io);
         saveController = new SaveController(people,policies,talkingpoints,keywords,ui,io);
         exitController = new ExitController(ui);
+        notificationController = new NotificationController(people,policies,talkingpoints,keywords,ui,io);
 
         //create STRATEGY options menu
         options = new HashMap<Integer,IController>();
@@ -64,6 +67,7 @@ public class MenuController
         options.put(4,keywordController);
         options.put(5,loadController);
         options.put(6,saveController);
+        options.put(7,notificationController);
         options.put(0,exitController);
     }
 

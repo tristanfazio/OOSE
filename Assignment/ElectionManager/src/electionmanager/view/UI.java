@@ -34,16 +34,22 @@ public class UI
         //print options in menu string, except final exit option as 0 key at end of string
         for(i=0;i<options.size()-1;i++)   
         {
-            menuString+="(" + (i+1) + ") " + options.get(i+1).getContext() + " ";
+            menuString+="\n(" + (i+1) + ") " + options.get(i+1).getContext() + " ";
         }
         //append quit option
-        menuString+="(0) Quit";
+        menuString+="\n\t(0) Quit";
         System.out.println(menuString);
     }
 
     public void showFunctionMenu(String context)
     {
         System.out.println("\n" + context + ":");
-        System.out.println("\n\t (1) Add, (2) Remove, (3) View, (0) Go Back");
+        System.out.println("\n\t(1) Add,\n\t(2) Remove,\n\t(3) View,\n\t(0) Go Back");
+    }
+    
+    public void showNotificationMenu(String context)
+    {
+        System.out.println("\n" + context + ":");
+        System.out.println("\n\t(1) Add,\n\t(2) Remove,\n\t(0) Go Back");
     }
 }
