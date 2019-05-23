@@ -24,7 +24,7 @@ public abstract class Person implements IObserver
 
     SMS smsMessenger;
     TwitterMessenger twitterMessenger;
-    FaceBook facebookMessenger;
+    FacebookMessenger facebookMessenger;
     //CONSTRUCTOR
     public Person(int inID, String inName, Set<Contact> inContacts,SMS smsMessenger,TwitterMessenger twitterMessenger,FacebookMessenger facebookMessenger)
     {

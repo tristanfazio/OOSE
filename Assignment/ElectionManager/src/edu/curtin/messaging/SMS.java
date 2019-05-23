@@ -11,6 +11,6 @@ public class SMS
     /** Sends an SMS to a given phone number. */
     public void sendSMS(long mobileNumber, String message) 
     {
-        System.out.println(mobileNumber + "notified with message:\n\t" + message);
+        System.out.println("\n" + mobileNumber + " notified with message:\n\t" + message);
     }
 }

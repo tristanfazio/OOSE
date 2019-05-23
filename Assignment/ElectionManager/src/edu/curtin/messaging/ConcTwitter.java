@@ -2,7 +2,7 @@ package edu.curtin.messaging;
 
 import java.util.*;
 
-public class ConcTwitter
+public class ConcTwitter extends TwitterMessenger
 {
     public ConcTwitter() 
     {

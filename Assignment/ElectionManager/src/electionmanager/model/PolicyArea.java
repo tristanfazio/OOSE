@@ -50,18 +50,23 @@ public class PolicyArea implements ISubject
     public void addTalkingPoint(TalkingPoint inTalkingPoint)
     {
         talkingPoints.add(inTalkingPoint);
+        notifyObserver("Policy " + name + " has a new Talking Point: " + inTalkingPoint.getWord());
+        
     }
     public void removeTalkingPoint(TalkingPoint inTalkingPoint)
     {
         talkingPoints.remove(inTalkingPoint);
+        notifyObserver("Policy " + name + " no longer has Talking Point: " + inTalkingPoint.getWord());
     }
     public void addKeyword(Keyword inKeyword)
     {
         keywords.add(inKeyword);
+        notifyObserver("Policy " + name + " has a new Keyword on social Media: " + inKeyword.getWord());
     }
     public void removeKeyword(Keyword inKeyword)
     {
         keywords.remove(inKeyword);
+        notifyObserver("Policy " + name + " no longer has Talking Point: " + inKeyword.getWord());
     }
     
     //METHODS
@@ -110,9 +115,12 @@ public class PolicyArea implements ISubject
 
     public void notifyObserver(String message)
     {
-        for (IObserver obs : observerList)
+        if(!observerList.isEmpty())
         {
-            obs.sendNotification(message);    
+            for (IObserver obs : observerList)
+            {
+                 obs.sendNotification(message);    
+            }
         }
     }
 }

@@ -2,7 +2,7 @@ package edu.curtin.messaging;
 
 import java.util.*;
 
-public class ConcFacebook
+public class ConcFacebook extends FacebookMessenger
 {
     public ConcFacebook() 
     {
