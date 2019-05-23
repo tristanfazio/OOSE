@@ -5,6 +5,7 @@ import electionmanager.view.UI;
 import electionmanager.controller.IO;
 import electionmanager.controller.IDGenerator;
 import electionmanager.model.*;
+import edu.curtin.messaging.*;
 
 /*****
 * Controller to the Add, Remove, View functions when observing Person Objects
@@ -157,11 +158,11 @@ public class PersonController extends ObjectController
         Person newPerson = null;
         switch(type)
         {
-            case 1: newPerson = new Candidate(id,name,contacts);
+            case 1: newPerson = new Candidate(id,name,contacts,new SMS(),new ConcTwitter(),new ConcFacebook());
                 break;
-            case 2: newPerson = new Strategist(id,name,contacts);
+            case 2: newPerson = new Strategist(id,name,contacts,new SMS(),new ConcTwitter(),new ConcFacebook());
                 break;
-            case 3: newPerson = new Volunteer(id,name,contacts);
+            case 3: newPerson = new Volunteer(id,name,contacts,new SMS(),new ConcTwitter(),new ConcFacebook());
                 break;
         }
         return newPerson;

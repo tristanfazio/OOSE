@@ -37,7 +37,7 @@ public class UI
             menuString+="\n(" + (i+1) + ") " + options.get(i+1).getContext() + " ";
         }
         //append quit option
-        menuString+="\n\t(0) Quit";
+        menuString+="\n(0) Quit";
         System.out.println(menuString);
     }
 

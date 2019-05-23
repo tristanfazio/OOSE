@@ -11,5 +11,5 @@ package electionmanager.controller;
 
 public interface IObserver
 {
-    
+    void sendNotification(String message);
 }

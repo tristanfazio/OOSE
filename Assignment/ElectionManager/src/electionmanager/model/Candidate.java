@@ -1,5 +1,6 @@
 package electionmanager.model;
 
+import edu.curtin.messaging.*;
 import java.util.*;
 
 
@@ -15,9 +16,9 @@ import java.util.*;
 
 public class Candidate extends Person
 {
-    public Candidate(int inID, String inName, Set<Contact> inContacts)
+    public Candidate(int inID, String inName, Set<Contact> inContacts,SMS smsMessenger,TwitterMessenger twitterMessenger,FacebookMessenger facebookMessenger)
     {
-        super(inID,inName,inContacts);
+        super(inID,inName,inContacts,smsMessenger,twitterMessenger,facebookMessenger);
         setType();
     }
     public void setType()

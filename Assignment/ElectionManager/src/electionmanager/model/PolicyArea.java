@@ -1,7 +1,8 @@
 package electionmanager.model;
 
 import java.util.*;
-
+import electionmanager.controller.ISubject;
+import electionmanager.controller.IObserver;
 
 /******
 *Person Class
@@ -13,13 +14,14 @@ import java.util.*;
 *Curtin University
 ******/
 
-public class PolicyArea
+public class PolicyArea implements ISubject
 {
     //CLASSFIELDS
     private String name;
     private String category;
     private Set<TalkingPoint> talkingPoints;
     private Set<Keyword> keywords;
+    private ArrayList<IObserver> observerList; 
     
     public PolicyArea(String inName, String inCategory)
     {   
@@ -27,6 +29,7 @@ public class PolicyArea
         this.category = inCategory;
         talkingPoints = new HashSet<TalkingPoint>();
         keywords = new HashSet<Keyword>();
+        this.observerList = new ArrayList<IObserver>();
     }
 
     //GETTERS
@@ -93,5 +96,23 @@ public class PolicyArea
             }
         }
         return outString;
+    }
+
+    public void registerObserver(IObserver obs)
+    {
+        observerList.add(obs);
+    }
+    
+    public void unregisterObserver(IObserver obs)
+    {
+        observerList.remove(obs);
+    }
+
+    public void notifyObserver(String message)
+    {
+        for (IObserver obs : observerList)
+        {
+            obs.sendNotification(message);    
+        }
     }
 }

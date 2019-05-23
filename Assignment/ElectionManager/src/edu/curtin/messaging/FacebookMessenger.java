@@ -7,7 +7,10 @@ public abstract class FacebookMessenger
     public FacebookMessenger() 
     {}
     public void sendPrivateMessage(String id, String message) 
-    {}
+    {
+        System.out.println(id + "notified with message:\n\t" + message);
+
+    }
     public void setKeywords(Set<String> keywords) 
     {}
     protected abstract void keywordsDetected(Map<String,Integer> keywords,

@@ -20,6 +20,7 @@ public class TalkingPoint
     {
         this.wordString=inWordString;
         this.relatedPolicy=inRelatedPolicy;
+        
     }
 
     //GETTERS
@@ -34,4 +35,6 @@ public class TalkingPoint
         outString += "\n\t Related to: " + relatedPolicy.getName();
         return outString;
     }
+
+
 }

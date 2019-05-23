@@ -20,8 +20,10 @@ public abstract class Contact
 
     public abstract int getNumber();
     public abstract String getText();
+    public String getType(){return type;}
     public String toString()
     {
         return type + ":";
     }
+
 }

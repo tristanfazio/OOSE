@@ -11,5 +11,7 @@ package electionmanager.controller;
 
 public interface ISubject
 {
-    
+    void registerObserver(IObserver obs);
+    void unregisterObserver(IObserver obs);
+    void notifyObserver(String Message);
 }

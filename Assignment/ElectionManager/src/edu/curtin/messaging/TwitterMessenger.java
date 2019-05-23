@@ -11,7 +11,7 @@ public abstract class TwitterMessenger
     /** Sends a private Twitter message to a given user. */
     public void sendPrivateMessage(String id, String message) 
     {
-
+        System.out.println(id + "notified with message:\n\t" + message);
     }
     /**
     * Replaces the existing set of keywords to be monitored with a new set.

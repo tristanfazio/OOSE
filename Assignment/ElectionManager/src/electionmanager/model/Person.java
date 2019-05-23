@@ -1,7 +1,8 @@
 package electionmanager.model;
 
 import java.util.*;
-
+import electionmanager.controller.IObserver;
+import edu.curtin.messaging.*;
 
 /******
 *Person Class
@@ -13,19 +14,27 @@ import java.util.*;
 *Curtin University
 ******/
 
-public abstract class Person
+public abstract class Person implements IObserver
 {
     //CLASSFIELDS
     private int idNum;
     private String name;
     protected String type;
     private Set<Contact> contacts;
+
+    SMS smsMessenger;
+    TwitterMessenger twitterMessenger;
+    FaceBook facebookMessenger;
     //CONSTRUCTOR
-    public Person(int inID, String inName, Set<Contact> inContacts)
+    public Person(int inID, String inName, Set<Contact> inContacts,SMS smsMessenger,TwitterMessenger twitterMessenger,FacebookMessenger facebookMessenger)
     {
         this.idNum = inID;
         this.name = inName;
         this.contacts = inContacts;
+
+        this.smsMessenger = smsMessenger;
+        this.twitterMessenger = twitterMessenger;
+        this.facebookMessenger = facebookMessenger;
     }
     //GETTERS
     public int getID(){return idNum;}
@@ -67,6 +76,24 @@ public abstract class Person
             outString += "\n\t" + c.toString();
         }
         return outString;
+    }
+
+    public void sendNotification(String message)
+    {
+        //person cant exist without atleast 1 contact, no verification needed
+        for (Contact c : contacts) 
+        {
+            String type = c.getType();
+            switch(type)
+            {
+                case "Mobile": smsMessenger.sendSMS((long)c.getNumber(),message);
+                    break;
+                case "Twitter":twitterMessenger.sendPrivateMessage(c.getText(),message);
+                    break;
+                case "Facebook":facebookMessenger.sendPrivateMessage(c.getText(),message);
+                    break;
+            }
+        }
     }
 
 }

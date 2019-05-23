@@ -1,5 +1,7 @@
 package electionmanager.model;
 
+
+
 /******
 *Keyword Class
 *Represents a Keyword object
@@ -34,4 +36,5 @@ public class Keyword
         outString += "\n\t Related to: " + relatedPolicy.getName();
         return outString;
     }
+
 }
